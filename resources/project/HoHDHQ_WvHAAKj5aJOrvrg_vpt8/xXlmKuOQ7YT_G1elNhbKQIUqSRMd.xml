@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Info description="A MATLAB Simulink behavior model of a 2nd order delta sigma ADC with SNR = 96dB and bandwidth of 20kHz.&#10;The FFT spectrum and the THD / SNDR are evaluated. And key non-idealities factors are implemented."/>
