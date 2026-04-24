@@ -44,13 +44,15 @@ for Ain = Ain_list
 end
 %% Plot SINAD vs signal amplitude
 
+Asig = logspace(-2,0,10);
+
 fig = figure('Units','inches','Position',[0 0 5 3]);
 fontname(fig,'TeXGyreTermes');
 fontsize(fig,10,"points");
 
 hold on;
 scatter(metrics,"Signal Amplitude (V)","SINAD (dB)");
-plot(logspace(-2,0,10),113+mag2db(logspace(-2,0,10)),"LineStyle","--")
+plot(Asig,mag2db(Asig/pi^2*sqrt(15*OSR^5)),"LineStyle","--")
 hold off;
 xscale('log');
 grid on;
