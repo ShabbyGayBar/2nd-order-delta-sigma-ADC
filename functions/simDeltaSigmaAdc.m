@@ -1,4 +1,4 @@
-function [input,bitstream,output] = simDeltaSigmaAdc(Ts,Fin,Ain,N)
+function [input,bitstream,output] = simDeltaSigmaAdc(Ts,Fin,Ain,N,OSR,Adc,GBW)
 %  simDeltaSigmaAdc Simulate the delta-sigma ADC
 % 
 % Run simulink simulation with the given input sine signal and sampling
@@ -9,6 +9,9 @@ arguments (Input)
     Fin (1,1) % signal frequency
     Ain (1,1) % signal amplitude
     N (1,1) % FFT points
+    OSR (1,1) % Oversampling ratio
+    Adc (1,1)
+    GBW (1,1)
 end
 arguments (Output)
     input
@@ -21,6 +24,9 @@ simIn = setVariable(simIn,'Ts',Ts);
 simIn = setVariable(simIn,'Fin',Fin);
 simIn = setVariable(simIn,'Ain',Ain);
 simIn = setVariable(simIn,'N',N);
+simIn = setVariable(simIn,'OSR',OSR);
+simIn = setVariable(simIn,'Adc',Adc);
+simIn = setVariable(simIn,'GBW',GBW);
 %% Start Simulink
 out=sim(simIn);
 %% Extract data
